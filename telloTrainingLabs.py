@@ -43,9 +43,9 @@ def sendmsg(msg, sleep = 5):
 # recvThread create
 recvThread = threading.Thread(target=recv)
 recvThread.start()
-print("\nFirst & Last Names")
-print("Program Name: ")
-print("Date: ")
+print("\nBraeden Easterday")
+print("Program Name: Take Off & Land")
+print("Date: 2.25.20")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 print(input("\nAre you ready to take flight? "))
