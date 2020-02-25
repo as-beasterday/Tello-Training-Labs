@@ -44,12 +44,21 @@ def sendmsg(msg, sleep = 5):
 recvThread = threading.Thread(target=recv)
 recvThread.start()
 print("\nBraeden Easterday")
-print("Program Name: Take Off & Land")
+print("Program Name: Square")
 print("Date: 2.25.20")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 print(input("\nAre you ready to take flight? "))
 print("\nStarting Drone!\n")
+
+# create functions here
+
+def square():
+    for i in range(4):
+        sendmsg('forward 50')
+        sendmsg('cw 90')
+
+
 
 time.sleep(1)
 try:
@@ -57,6 +66,7 @@ try:
     sendmsg('takeoff')
 
     # Commands go here, read the SDK for commands.
+    square()
 
     sendmsg('land')
     print('Great Flight!!!')
