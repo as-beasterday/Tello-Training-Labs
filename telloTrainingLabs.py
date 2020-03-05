@@ -32,7 +32,7 @@ def recv():
             print ('\nError recv\n')
             break
 
-def sendmsg(msg, sleep = 5):
+def sendmsg(msg, sleep = 4):
     # Message sender
 
     print("Sending: " + msg)
@@ -49,7 +49,7 @@ print("Date: 2.25.20")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 print(input("\nAre you ready to take flight? "))
-print("\nStarting Drone!\n")
+
 
 # create functions here
 
@@ -58,18 +58,30 @@ def square():
         sendmsg('forward 50')
         sendmsg('cw 90')
 
+def triangle():
+    sendmsg('up 50')
+    for i in range(3):
+        sendmsg('cw 120')
+        sendmsg('forward 100')
 
 
 time.sleep(1)
 try:
-    sendmsg('command', 0)
-    sendmsg('takeoff')
+    if ready.lower() == 'yes':
+        print("\nStarting Drone!\n")
 
-    # Commands go here, read the SDK for commands.
-    square()
+        sendmsg('command', 0)
+        sendmsg('takeoff', 8)
 
-    sendmsg('land')
-    print('Great Flight!!!')
+        # Commands go here, read the SDK for commands.
+        #square()
+        triangle()
+
+        sendmsg('land')
+        print('\nGreat Flight!!!')
+    else:
+        print('\nMake sure you check WIFI, surroundings, co-pilot is ready, re-run program\n')
+
 except KeyboardInterrupt: # Ctrl+C (Use if drone is going crazy and to exit the application)
     sendmsg('emergency')
 breakr = True
