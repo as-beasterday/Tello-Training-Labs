@@ -53,13 +53,16 @@ print("\nStarting Drone!\n")
 
 time.sleep(1)
 try:
-    sendmsg('command', 0)
-    sendmsg('takeoff')
+    if ready.lower() == 'yes':
+        sendmsg('command', 0)
+        sendmsg('takeoff')
 
-    # Commands go here, read the SDK for commands.
+        # Commands go here, read the SDK for commands.
 
-    sendmsg('land')
-    print('Great Flight!!!')
+        sendmsg('land')
+        print('Great Flight!!!')
+    else:
+        print('')
 except KeyboardInterrupt: # Ctrl+C (Use if drone is going crazy and to exit the application)
     sendmsg('emergency')
 breakr = True
