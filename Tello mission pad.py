@@ -49,7 +49,6 @@ print("Date: ")
 print("\n****CHECK YOUR TELLO WIFI ADDRESS")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 print(input("\nAre you ready to take flight? "))
-print("\nStarting Drone!\n")
 
 time.sleep(1)
 try:
@@ -62,7 +61,7 @@ try:
         sendmsg('land')
         print('Great Flight!!!')
     else:
-        print('')
+        print('\nMake sure you check Wifi, surroundings, co-pilot ready, re-run program\n')
 except KeyboardInterrupt: # Ctrl+C (Use if drone is going crazy and to exit the application)
     sendmsg('emergency')
 breakr = True
